@@ -41,7 +41,13 @@ class CustomerRepositoryTest {
 
     }
 
+    @Test
+    void justTesting() {
+        //Given
+        //When
+        //Then
 
+    }
 
 
 
