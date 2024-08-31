@@ -1,6 +1,8 @@
 package com.first.testingProject.customer;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -9,15 +11,18 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Entity
+@JsonIgnoreProperties( value = {"id"}, allowGetters = true)
 public class Customer {
 
     @Id
     private UUID id;
 
     @NotBlank
+    @Column(nullable = false)
     private  String name;
 
     @NotBlank
+    @Column(nullable = false, unique = true)
     private String phoneNumber;
 
     public Customer() {
