@@ -10,12 +10,19 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.util.Optional;
 import java.util.UUID;
 
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import java.util.Currency;
 //import static org.hamcrest.MatcherAssert.assertThat;
 //import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest
+@DataJpaTest(
+        properties = {
+                "spring.jpa.properties.javax.persistence.validation.mode=none"
+        }
+)
+
 class CustomerRepositoryTest {
 
 
@@ -59,6 +66,6 @@ class CustomerRepositoryTest {
 //                .hasMessageContaining("not-null property references a null or transient value : com.amigoscode.testing.customer.Customer.name ")
 //                .isInstanceOf(DataIntegrityViolationException.class);
 //
-//    }
+//   }
 
 }
