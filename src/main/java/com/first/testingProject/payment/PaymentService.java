@@ -5,14 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 import java.util.UUID;
 
 @Service
 public class PaymentService {
 
     private static final List<Currency> ACCEPTED_CURRENCIES = List.of(Currency.USD, Currency.GBP);
-
 
     private final CustomerRepository customerRepository;
     private final PaymentRepository paymentRepository ;
@@ -30,7 +28,6 @@ public class PaymentService {
     }
 
     void chargeCard(UUID customerId, PaymentRequest paymentRequest){
-
         //1. Does customer exists if not throw
         boolean isCustomerFound = customerRepository.findById(customerId).isPresent() ;
 
@@ -71,7 +68,6 @@ public class PaymentService {
         paymentRepository.save(paymentRequest.getPayment());
 
         //6. TO DO: send sms
-
 
 
 
